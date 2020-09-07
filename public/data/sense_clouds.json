@@ -1,0 +1,412 @@
+{
+  "data": {
+      "03039407": {
+          "pwn": [
+              "generic",
+              "head.n.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [
+                  "animal.n.01",
+                  "body.n.01"
+              ],
+              "hypernyms": [
+                  "entity.n.01",
+                  "physical_entity.n.01",
+                  "thing.n.12",
+                  "part.n.03",
+                  "body_part.n.01",
+                  "external_body_part.n.01",
+                  "head.n.01"
+              ],
+              "hyponyms": [
+                  "human_head.n.01"
+              ],
+              "meronyms": [
+                  "basilar_artery.n.01",
+                  "brain.n.01",
+                  "ear.n.01",
+                  "face.n.01",
+                  "muzzle.n.02",
+                  "skull.n.01",
+                  "temple.n.02"
+              ]
+          },
+          "relations": []
+      },
+      "04086508": {
+          "pwn": [],
+          "pwn_onto": {},
+          "relations": [
+              [
+                  "antonym",
+                  "06559205",
+                  "去",
+                  "D",
+                  "表前述對象進行後述事件。"
+              ]
+          ]
+      },
+      "05003602": {
+          "pwn": [],
+          "pwn_onto": {},
+          "relations": []
+      },
+      "05193101": {
+          "pwn": [
+              "generic",
+              "gate.n.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [],
+              "hypernyms": [
+                  "entity.n.01",
+                  "physical_entity.n.01",
+                  "object.n.01",
+                  "whole.n.02",
+                  "artifact.n.01",
+                  "structure.n.01",
+                  "obstruction.n.01",
+                  "barrier.n.01",
+                  "movable_barrier.n.01",
+                  "gate.n.01"
+              ],
+              "hyponyms": [
+                  "head_gate.n.02",
+                  "lock-gate.n.01",
+                  "lychgate.n.01",
+                  "portcullis.n.01",
+                  "postern.n.01",
+                  "tail_gate.n.01",
+                  "tailgate.n.01",
+                  "tollgate.n.01",
+                  "turnpike.n.01",
+                  "turnstile.n.01",
+                  "wicket.n.03"
+              ],
+              "meronyms": [
+                  "hinge.n.01",
+                  "lock.n.01"
+              ]
+          },
+          "relations": []
+      },
+      "05198303": {
+          "pwn": [],
+          "pwn_onto": {},
+          "relations": [
+              [
+                  "synonym",
+                  "04026904",
+                  "便是",
+                  "D",
+                  "表後述事件緊接著前述事件發生。"
+              ],
+              [
+                  "synonym",
+                  "07114803",
+                  "便",
+                  "D",
+                  "表後述事件緊接著前述事件發生。"
+              ],
+              [
+                  "synonym",
+                  "04000809",
+                  "而",
+                  "Cbb",
+                  "表後述事件緊接著前述事件發生。"
+              ],
+              [
+                  "varword",
+                  "04026903",
+                  "便是",
+                  "D",
+                  "表加強說話者對陳述內容的肯定。"
+              ]
+          ]
+      },
+      "05226302": {
+          "pwn": [
+              "generic",
+              "listen.v.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [],
+              "hypernyms": [
+                  "perceive.v.01",
+                  "listen.v.01"
+              ],
+              "hyponyms": [
+                  "attend.v.05",
+                  "hark.v.01",
+                  "hear_out.v.01",
+                  "listen_in.v.01",
+                  "listen_in.v.02"
+              ],
+              "meronyms": []
+          },
+          "relations": [
+              [
+                  "synonym",
+                  "09089702",
+                  "聆",
+                  "VC",
+                  "透過聽覺來理解和欣賞。"
+              ]
+          ]
+      },
+      "05238501": {
+          "pwn": [],
+          "pwn_onto": {},
+          "relations": []
+      },
+      "06708303": {
+          "pwn": [
+              "generic",
+              "home.n.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [],
+              "hypernyms": [
+                  "entity.n.01",
+                  "physical_entity.n.01",
+                  "object.n.01",
+                  "location.n.01",
+                  "point.n.02",
+                  "geographic_point.n.01",
+                  "address.n.02",
+                  "residence.n.01",
+                  "home.n.01"
+              ],
+              "hyponyms": [
+                  "home_away_from_home.n.01"
+              ],
+              "meronyms": []
+          },
+          "relations": []
+      },
+      "06721001": {
+          "pwn": [
+              "generic",
+              "open.v.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [],
+              "hypernyms": [
+                  "open.v.01"
+              ],
+              "hyponyms": [
+                  "break_open.v.01",
+                  "click_open.v.01",
+                  "gap.v.01",
+                  "lance.v.03",
+                  "pry.v.01",
+                  "reopen.v.01",
+                  "unbar.v.01",
+                  "unbolt.v.01",
+                  "uncork.v.02",
+                  "unlock.v.01",
+                  "unseal.v.01"
+              ],
+              "meronyms": []
+          },
+          "relations": [
+              [
+                  "antonym",
+                  "06018001",
+                  "關",
+                  "VC",
+                  "將特定對象的開口或通道閉合。"
+              ],
+              [
+                  "antonym",
+                  "07045301",
+                  "閉",
+                  "VC",
+                  "將特定對象的開口或通道閉合。"
+              ],
+              [
+                  "antonym",
+                  "09290001",
+                  "關閉",
+                  "VC",
+                  "將特定對象的開口或通道閉合。通常用於門窗。"
+              ],
+              [
+                  "synonym",
+                  "07063401",
+                  "啟",
+                  "VC",
+                  "移動封閉門窗的裝置物，使其空間的出入口不被封閉。"
+              ],
+              [
+                  "synonym",
+                  "06548101",
+                  "打開",
+                  "VC",
+                  "移動封閉門窗的裝置物，使其空間的出入口不被封閉。"
+              ]
+          ]
+      },
+      "06727304": {
+          "pwn": [],
+          "pwn_onto": {},
+          "relations": []
+      },
+      "06743302": {
+          "pwn": [
+              "generic",
+              "song.n.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [],
+              "hypernyms": [
+                  "entity.n.01",
+                  "abstraction.n.06",
+                  "communication.n.02",
+                  "auditory_communication.n.01",
+                  "music.n.01",
+                  "musical_composition.n.01",
+                  "song.n.01"
+              ],
+              "hyponyms": [
+                  "anthem.n.01",
+                  "aria.n.01",
+                  "ballad.n.01",
+                  "barcarole.n.01",
+                  "dirge.n.01",
+                  "ditty.n.01",
+                  "drinking_song.n.01",
+                  "folk_song.n.01",
+                  "lied.n.01",
+                  "love_song.n.01",
+                  "lullaby.n.01",
+                  "oldie.n.01",
+                  "partsong.n.01",
+                  "prothalamion.n.01",
+                  "religious_song.n.01",
+                  "roundelay.n.01",
+                  "scolion.n.01",
+                  "serenade.n.02",
+                  "torch_song.n.01",
+                  "work_song.n.01"
+              ],
+              "meronyms": [
+                  "lyric.n.01",
+                  "refrain.n.01"
+              ]
+          },
+          "relations": []
+      },
+      "06749229": {
+          "pwn": [
+              "generic",
+              "put.v.01"
+          ],
+          "pwn_onto": {
+              "holonyms": [],
+              "hypernyms": [
+                  "move.v.02",
+                  "put.v.01"
+              ],
+              "hyponyms": [
+                  "appose.v.01",
+                  "arrange.v.01",
+                  "barrel.v.01",
+                  "bed.v.03",
+                  "bottle.v.02",
+                  "bucket.v.01",
+                  "butt.v.03",
+                  "clap.v.01",
+                  "cock.v.02",
+                  "coffin.v.01",
+                  "cram.v.02",
+                  "dispose.v.04",
+                  "docket.v.01",
+                  "emplace.v.01",
+                  "emplace.v.02",
+                  "ensconce.v.01",
+                  "glycerolize.v.01",
+                  "ground.v.03",
+                  "imbricate.v.01",
+                  "insert.v.02",
+                  "install.v.01",
+                  "intersperse.v.01",
+                  "jar.v.05",
+                  "juxtapose.v.01",
+                  "ladle.v.01",
+                  "lay.v.02",
+                  "lean.v.02",
+                  "load.v.04",
+                  "marshal.v.01",
+                  "middle.v.01",
+                  "misplace.v.01",
+                  "misplace.v.02",
+                  "nestle.v.03",
+                  "parallelize.v.01",
+                  "park.v.01",
+                  "perch.v.03",
+                  "pigeonhole.v.01",
+                  "pile.v.03",
+                  "pillow.v.01",
+                  "plant.v.01",
+                  "plant.v.05",
+                  "poise.v.03",
+                  "position.v.01",
+                  "postpose.v.01",
+                  "prepose.v.01",
+                  "rack_up.v.02",
+                  "recess.v.01",
+                  "recline.v.02",
+                  "replace.v.03",
+                  "repose.v.06",
+                  "reposition.v.02",
+                  "rest.v.08",
+                  "seat.v.01",
+                  "seat.v.06",
+                  "seat.v.07",
+                  "set.v.16",
+                  "set_down.v.03",
+                  "set_down.v.04",
+                  "settle.v.01",
+                  "shelve.v.02",
+                  "ship.v.05",
+                  "sign.v.06",
+                  "siphon.v.02",
+                  "situate.v.02",
+                  "sow.v.01",
+                  "space.v.01",
+                  "stand.v.10",
+                  "step.v.08",
+                  "stratify.v.04",
+                  "superimpose.v.01",
+                  "superpose.v.01",
+                  "tee.v.01",
+                  "throw.v.04",
+                  "throw.v.08",
+                  "trench.v.04",
+                  "underlay.v.02",
+                  "upend.v.02"
+              ],
+              "meronyms": []
+          },
+          "relations": [
+              [
+                  "synonym",
+                  "03012305",
+                  "放出",
+                  "VC",
+                  "播放影音。"
+              ],
+              [
+                  "synonym",
+                  "03012403",
+                  "放出來",
+                  "VB",
+                  "播放影音。"
+              ]
+          ]
+      }
+  },
+  "status": "ok"
+}

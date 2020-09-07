@@ -1,0 +1,25 @@
+.token-wrapper {  
+  margin: 0% 6px;
+}
+
+.sense-def {
+  white-space: normal !important;
+  line-height: 150%;
+  margin-top: 5%;
+  padding: 6px;
+  text-align: left;
+  
+  writing-mode: vertical-lr;
+  letter-spacing: 2px;
+  max-height: 100px;
+}
+
+.word {
+  margin-top: -3px;
+  font-size: 16pt;
+  font-weight: bolder;
+}
+
+.pos {
+  font-size: 10pt;
+}
