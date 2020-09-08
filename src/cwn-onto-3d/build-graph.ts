@@ -8,7 +8,7 @@ export interface OntoGraph {
 export interface INode {
   id: string;
   type: "Lemma" | "CwnSense" | "PwnSynset" |
-        "HyperHypo" | "HoloMero";        
+  "HyperHypo" | "HoloMero";
   label: string;
   fx?: number;
   fy?: number;
@@ -24,20 +24,20 @@ export interface IEdge {
 export function build_graph(tokens: WsdToken[], lemmaSenses: LemmaSenses, senseClouds: SenseClouds) {
   let V = {} as { [nid: string]: INode };
   let E = {} as { [eid: string]: IEdge };;
-  
-  const PWN_LEVEL_0 = -100;
-  const PWN_LEVEL_1 = -200;
-  let lemmaMap: {[lemma: string]: string[]} = {};
-  tokens.map((token, idx)=>{
+
+  const PWN_LEVEL_0 = -200;
+  const PWN_LEVEL_1 = -400;
+  let lemmaMap: { [lemma: string]: string[] } = {};
+  tokens.map((token, idx) => {
     let lemma = token[0];
     let nid = `${lemma}-${idx}`;
-    
-    if (lemma in lemmaMap){
+
+    if (lemma in lemmaMap) {
       lemmaMap[lemma].push(nid);
     } else {
       lemmaMap[lemma] = [nid];
     }
-    
+
     V[nid] = {
       id: nid, type: "Lemma", label: lemma,
       fx: idx * 100, fy: 0, fz: 0
@@ -47,19 +47,19 @@ export function build_graph(tokens: WsdToken[], lemmaSenses: LemmaSenses, senseC
   Object.entries(lemmaSenses)
     .map((val, idx) => {
       let [lemma, senses] = val;
-      
+
       senses.map((sense: LemmaSense) => {
         V[sense.id] = {
           id: sense.id,
           type: "CwnSense",
           label: `(${sense.pos}) ${sense.definition}`,
-          fx: lemmaMap[lemma].reduce((sum, lemmaNodeId)=>{
-            sum += V[lemmaNodeId].fx !== undefined ? V[lemmaNodeId].fx!: 0;
+          fx: lemmaMap[lemma].reduce((sum, lemmaNodeId) => {
+            sum += V[lemmaNodeId].fx !== undefined ? V[lemmaNodeId].fx! : 0;
             return sum;
           }, 0) / lemmaMap[lemma].length
         }
 
-        lemmaMap[lemma].map((lemmaNodeId)=>{
+        lemmaMap[lemma].map((lemmaNodeId) => {
           let eid = `${lemmaNodeId}-${sense.id}`;
           E[eid] = {
             "source": lemmaNodeId,
@@ -70,6 +70,8 @@ export function build_graph(tokens: WsdToken[], lemmaSenses: LemmaSenses, senseC
       })
 
     });
+
+  senseClouds = senseClouds ? senseClouds : {};
 
   Object.entries(senseClouds)
     .map((val, idx) => {
@@ -91,16 +93,18 @@ export function build_graph(tokens: WsdToken[], lemmaSenses: LemmaSenses, senseC
 
       // build PWN synset link
       let [_, pwnId] = senseCloud.pwn;
-      if (!(pwnId in V)) {
-        V[pwnId] = {
-          id: pwnId, type: "PwnSynset", label: pwnId,
-          fy: PWN_LEVEL_0
+      if (pwnId !== undefined && pwnId !== "") {
+        if (!(pwnId in V)) {
+          V[pwnId] = {
+            id: pwnId, type: "PwnSynset", label: pwnId,
+            fy: PWN_LEVEL_0
+          }
         }
-      }
 
-      let eid = `${srcSenseId}-${pwnId}`;
-      E[eid] = {
-        source: srcSenseId, target: pwnId, label: "PwnMapping"
+        let eid = `${srcSenseId}-${pwnId}`;
+        E[eid] = {
+          source: srcSenseId, target: pwnId, label: "PwnMapping"
+        }
       }
 
       // build PWN synset relations

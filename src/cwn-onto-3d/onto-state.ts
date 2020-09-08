@@ -13,7 +13,7 @@ interface CwnOntoState {
 type CwnOntoAction =
   COA_NewSentence | COA_NewTokens | 
   COA_NewSenseClouds | COA_NewLemmaSenses |
-  COA_SelectedSense;
+  COA_SelectedSense | COA_ResetState;
 
 interface COA_NewSentence {
   type: "NEW_SENTENCE",
@@ -38,6 +38,10 @@ interface COA_NewSenseClouds {
 interface COA_SelectedSense {
   type: "SELECT_SENSE",
   payload: SenseData
+}
+
+interface COA_ResetState {
+  type: "RESET_STATE"
 }
 
 function initState(){
@@ -68,6 +72,9 @@ function reducer(state: CwnOntoState, action: CwnOntoAction) {
     case 'SELECT_SENSE':
       newState.selSenseData = action.payload;
       break;
+    case 'RESET_STATE':
+      newState = initState();
+      break;
     default:
     // pass
   }
@@ -75,50 +82,52 @@ function reducer(state: CwnOntoState, action: CwnOntoAction) {
 }
 
 export interface ontoController {
-  updateSentence: (sentence: string) => void,
+  updateSentence: (sentence: string, completeFn: ()=>void, isDummy?: boolean) => void,
   selectSense: (senseId: string) => void
 }
 
 export function useOntoState() {
   let [ontoState, dispatch] = useReducer(reducer, {} as CwnOntoState, initState);
 
-  function updateSentence(sentence: string) {    
+  function updateSentence(sentence: string, completeFn: ()=>void, isDummy=false) {    
     if(sentence !== ontoState.sentence){
+      dispatch({"type": "RESET_STATE"});
       dispatch({"type": "NEW_SENTENCE", "payload": sentence});
     } else {
       return;
     }
-
-    api.get_tag(sentence)
+    
+    api.get_tag(sentence, isDummy)
       .then((tokens) => {
         console.log("tagged");
         console.log(tokens);
         dispatch({"type": "NEW_TAGGED", "payload": tokens});
-        api.get_lemma_senses(tokens)
+        api.get_lemma_senses(tokens, isDummy)
           .then((lemma_senses) => {
             console.log("lemma senses");
             console.log(lemma_senses);
             dispatch({"type": "NEW_LEMMA_SENSES", "payload": lemma_senses});
           });  
-        let wsd = api.get_wsd(tokens);
+        let wsd = api.get_wsd(tokens, isDummy);
         return wsd;
       }).then((tokens)=>{
         console.log("wsd");
         console.log(tokens);
         dispatch({"type": "NEW_TAGGED", "payload": tokens});
 
-        let sense_clouds = api.get_sense_clouds(tokens);        
+        let sense_clouds = api.get_sense_clouds(tokens, isDummy);        
         return sense_clouds
       }).then((clouds: SenseClouds) => {
         console.log("sense clouds");
         console.log(clouds);
 
         dispatch({"type": "NEW_SENSE_CLOUDS", "payload": clouds});
+        completeFn();
       });
   }
 
-  function selectSense(senseId: string) {
-    api.get_sense_data(senseId)
+  function selectSense(senseId: string, isDummy=false) {
+    api.get_sense_data(senseId, isDummy)
       .then((data: SenseData)=>{
         console.log("sense data");
         console.log(data);

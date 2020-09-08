@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import "./cwn-onto-3d.css"
 import { useOntoState } from './onto-state';
 import { WsdView } from './wsd-view';
@@ -6,26 +6,36 @@ import { Sense3dView } from './sense-3d-view';
 
 export function CwnOnto3D() {
   let { ontoState, controller } = useOntoState();
-  let inputElem = useRef(null);
+  let inputElem = useRef<HTMLInputElement>(null);
+  let [isLoading, setIsLoading] = useState(false);
+
+  useEffect(()=>{
+    controller.updateSentence("<default>", ()=>setIsLoading(false), true);
+  }, []);
 
   let onInputKeyDown = (ev: React.KeyboardEvent) => {
     if (ev.key === "Enter") {
       console.log("enter");
-      controller.updateSentence("<default>");
+      if (inputElem.current){
+        setIsLoading(true);
+        let txtInput = inputElem.current.value;              
+        controller.updateSentence(txtInput, ()=>setIsLoading(false));
+      }
     }
   }
 
-  // controller.selectSense("");
+  let spinner = isLoading? (<div className="loader">Loading</div>): null;
   return (
-    <div>
+    <div className="container">
       <input
         ref={inputElem}
         id="inputText" type="text"
         onKeyDown={onInputKeyDown}
         placeholder="輸入句子"></input>
       <div className="cwn-onto-3d">
-        <WsdView tokens={ontoState.tokens}/>
-        <Sense3dView 
+        {spinner} 
+        <WsdView tokens={ontoState.tokens}/>               
+        <Sense3dView           
           tokens={ontoState.tokens}
           lemmaSenses={ontoState.lemmaSenses}
           senseClouds={ontoState.senseClouds}/>
