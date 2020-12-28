@@ -40,6 +40,7 @@ export function CwnOnto3D() {
           lemmaSenses={ontoState.lemmaSenses}
           senseClouds={ontoState.senseClouds}/>
       </div>
+      <div className="ack-div">本詞意消岐展示網頁，感謝科技部計畫「建構概念為本且具語義結合性的中文知識庫」支持</div>
     </div>
   )
 }
